@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Document</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body class="h-screen">
+  <div class="grid grid-cols-12 grid-rows-7 gap-0 h-full">
+    <!-- Left Panel -->
+    <div
+      class="col-span-3 row-span-2 flex flex-col items-center justify-center 
+             bg-gradient-to-r from-gray-900 via-blue-800 to-blue-500 
+             p-6 rounded-lg shadow-lg"
+    >
+      <h1 class="text-8xl font-bold bg-gradient-to-r from-white to-blue-300 bg-clip-text text-transparent p-6 ">
+        Thogakade
+      </h1>
+      <h2 class="text-3xl bg-gradient-to-r from-white to-blue-300 bg-clip-text text-transparent mt-2">
+        @Piliyandala
+      </h2>
+    </div>
+
+    <!-- Content Area -->
+    <div
+      id="contentArea"
+      class="col-span-9 row-span-6 col-start-4 row-start-2 p-6 
+             flex flex-col h-full"
+    >
+      <!-- Page Title -->
+      <h1
+        class="text-7xl font-extrabold text-center 
+               bg-gradient-to-r from-blue-700 via-blue-500 to-blue-300 
+               bg-clip-text text-transparent drop-shadow-md"
+      >
+        Customer List - 2025
+      </h1>
+
+      <!-- Search Bar -->
+      <div class="my-4 flex justify-end">
+        <input
+          id="searchInput"
+          type="text"
+          placeholder="Search by name..."
+          class="w-96 p-3 text-3xl border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+      </div>
+      
+
+      <!-- Table Wrapper: grows to fill leftover space, only table scrolls -->
+      <div class="flex-1 mt-6 shadow-lg rounded-lg overflow-hidden">
+        <!-- The scroll is handled by this container -->
+        <div class="h-full overflow-y-auto">
+          <table id="tblCustomer" class="min-w-full border-collapse">
+            <!-- Table Head -->
+            <thead class="bg-blue-600 text-white sticky top-0 uppercase text-sm font-semibold tracking-wider">
+              <tr>
+                <th class="py-3 px-4 text-center text-3xl border-b border-blue-700">ID</th>
+                <th class="py-3 px-4 text-center text-3xl border-b border-blue-700">Name</th>
+                <th class="py-3 px-4 text-center text-3xl border-b border-blue-700">Address</th>
+                <th class="py-3 px-4 text-center text-3xl border-b border-blue-700">Salary</th>
+                <th class="py-3 px-4 text-center  text-3xl border-b border-blue-700">PhoneNumber</th>
+              </tr>
+            </thead>
+
+           
+            <tbody class="text-gray-700 text-lg">
+              <tr class="even:bg-gray-50 hover:bg-blue-50 transition-colors">
+               
+            
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Side Buttons -->
+    <div
+      class="col-span-3 row-span-4 row-start-3 shadow-lg rounded-lg p-6 
+             flex flex-col justify-evenly items-center h-full 
+             bg-gradient-to-r from-gray-900 via-blue-800 to-blue-500"
+    >
+      <button
+        id="addBtn"
+        class="w-64 bg-gradient-to-r from-blue-400 to-blue-600 text-white text-3xl px-6 py-4 
+               rounded shadow-lg hover:from-blue-500 hover:to-blue-700 transition font-semibold"
+      >
+        🆕 Add
+      </button>
+
+      <button
+        id="deleteBtn"
+        class="w-64 bg-gradient-to-r from-red-400 to-red-600 text-white text-3xl px-6 py-4 
+               rounded shadow-lg hover:from-red-500 hover:to-red-700 transition font-semibold"
+      >
+        🚮 Delete
+      </button>
+
+      <button
+        id="updateBtn"
+        class="w-64 bg-gradient-to-r from-yellow-400 to-yellow-600 text-white text-3xl px-6 py-4 
+               rounded shadow-lg hover:from-yellow-500 hover:to-yellow-700 transition font-semibold"
+      >
+        🔄 Update
+      </button>
+
+      <button
+        id="searchbtn"
+        class="w-64 bg-gradient-to-r from-green-400 to-green-600 text-white text-3xl px-6 py-4 
+               rounded shadow-lg hover:from-green-500 hover:to-green-700 transition font-semibold"
+      >
+        🔍 Search
+      </button>
+    </div>
+
+    <!-- Footer -->
+    <div class="col-span-3 row-start-7 bg-gradient-to-r from-gray-900 via-blue-800 to-blue-500">
+      20
+    </div>
+  </div>
+
+  <!-- JavaScript for Real-Time Search Filtering -->
+  <script>
+    // Filter table rows as you type in the search bar.
+    document.getElementById('searchInput').addEventListener('input', function() {
+      const filter = this.value.toLowerCase();
+      const table = document.getElementById('tblCustomer');
+      const rows = table.getElementsByTagName('tr');
+
+      // Loop through table rows, skipping the header row (index 0)
+      for (let i = 1; i < rows.length; i++) {
+        const nameCell = rows[i].getElementsByTagName('td')[1]; // Name column
+        if (nameCell) {
+          const nameText = nameCell.textContent || nameCell.innerText;
+          rows[i].style.display = nameText.toLowerCase().includes(filter) ? "" : "none";
+        }
+      }
+    });
+  </script>
+
+  <script src="JS/homee.js"></script>
+  <script src="JS/add-customer.js"></script>
+  <script src="JS/delete-customer.js"></script>
+  <script src="JS/update-customer.js"></script>
+  <script src="JS/search-customer.js"></script>
+</body>
+</html>
