@@ -1,69 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Customer List - 2025</title>
     <script src="https://cdn.tailwindcss.com"></script>
-</head>
+  </head>
 
-<body>
-   
+  <body>
+    <div
+      class="grid grid-cols-9 grid-rows-7 gap-4 flex flex-row flex-wrap justify-center items-start content-center"
+    >
+      <div class="col-span-2 row-span-7 absolute top-4">
+        <h1
+          class="text-5xl font-extrabold bg-gradient-to-r from-blue-700 via-blue-500 to-blue-300 bg-clip-text text-transparent drop-shadow-lg font-mono mt-4"
+        >
+          Search Customer
+        </h1>
+      </div>
 
-    <div class="grid grid-cols-9 grid-rows-7 gap-4 flex flex-row flex-wrap justify-center items-start content-center">
-       
-        <div class="col-span-2 row-span-7 absolute top-4"><H1 class="text-5xl font-extrabold bg-gradient-to-r from-blue-700 via-blue-500 to-blue-300 bg-clip-text text-transparent 
-            drop-shadow-lg font-mono mt-4">Search Customer</H1></div>
+      <div class="col-span-5 col-start-3">
+        <h4 class="mt-16 text-2xl">Please Search From ID to Found Customer</h4>
+      </div>
 
-        <div class="col-span-5 col-start-3">
-            <h4 class="mt-16 text-2xl " >Please Search From ID to Found Customer</h4>
-        </div>
+      <div class="col-span-5 col-start-3 row-start-2">
+        <label class="block text-3xl font-semibold">ID :</label>
+        <input
+          type="text"
+          class="w-full text-3xl border rounded p-5 mt-1"
+          placeholder="Enter ID"
+          id="id"
+        />
+      </div>
 
-        <div class="col-span-5 col-start-3 row-start-2"> 
-            <label class="block text-3xl font-semibold">ID :</label>
-            <input type="text" class="w-full text-3xl border rounded p-5 mt-1"  placeholder="Enter ID" id="id">
-        </div>
+      <div class="col-span-5 col-start-3 row-start-3">
+        <label class="block text-3xl font-semibold">Name:</label>
+        <input
+          type="text"
+          class="w-full text-3xl border rounded p-5 mt-1"
+          id="name"
+        />
+      </div>
 
-        <div class="col-span-5 col-start-3 row-start-3">
-             <label class="block text-3xl font-semibold">Name:</label>
-            <input type="text" class="w-full text-3xl border rounded p-5 mt-1" id="name">
-        </div>
+      <div class="col-span-5 col-start-3 row-start-4">
+        <label class="block text-3xl font-semibold">Address :</label>
+        <input
+          type="text"
+          class="w-full text-3xl border rounded p-5 mt-1"
+          id="address"
+        />
+      </div>
+      <div class="col-span-5 col-start-3 row-start-5">
+        <label class="block text-3xl font-semibold">Salary :</label>
+        <input
+          type="text"
+          class="w-full text-3xl border rounded p-5 mt-1"
+          id="salary"
+        />
+      </div>
+      <div class="col-span-5 col-start-3 row-start-6">
+        <label class="block text-3xl font-semibold">PhoneNumber:</label>
+        <input
+          type="text"
+          class="w-full text-3xl border rounded p-5 mt-1"
+          id="PhoneNumber"
+        />
+      </div>
+      <div
+        class="col-span-5 col-start-3 row-start-7 flex justify-center items-center px-6 py-2"
+      >
+        <button
+          class="w-64 bg-gradient-to-r from-blue-500 to-green-400 text-white text-3xl py-4 rounded shadow-lg hover:from-green-400 hover:to-blue-500 transition"
+          onclick="search()"
+        >
+          🔍 Search
+        </button>
+      </div>
 
-        <div class="col-span-5 col-start-3 row-start-4">
-            <label class="block text-3xl font-semibold">Address  :</label>
-            <input type="text" class="w-full text-3xl border rounded p-5 mt-1" id="address">
-        </div>
-        <div class="col-span-5 col-start-3 row-start-5">
-            <label class="block text-3xl font-semibold">Salary :</label>
-            <input type="text" class="w-full text-3xl border rounded p-5 mt-1" id="salary">
-        </div>
-        <div class="col-span-5 col-start-3 row-start-6">
-            <label class="block text-3xl font-semibold">PhoneNumber:</label>
-            <input type="text" class="w-full text-3xl border rounded p-5 mt-1" id="PhoneNumber">
-        </div>
-        <div class="col-span-5 col-start-3 row-start-7 flex justify-center items-center px-6 py-2">
-            <button class="w-64 bg-gradient-to-r from-blue-500 to-green-400 text-white text-3xl py-4 rounded shadow-lg hover:from-green-400 hover:to-blue-500 transition" onclick="search()">
-                🔍 Search
-            </button>
-            
-            
-            
-       </div>
-
-        <div class="col-span-2 row-span-7 col-start-8 row-start-1 absolute top-4 right-4">
-            <button class="category-btn border-4 border-blue-500 rounded-full p-2">
-                <a class="nav-link" href="home.html">
-                    <img src="images/homepage.png" alt="Home" class="w-24 h-24" />
-                </a>
-            </button>
-            
-        </div>
+      <div
+        class="col-span-2 row-span-7 col-start-8 row-start-1 absolute top-4 right-4"
+      >
+        <button class="category-btn border-4 border-blue-500 rounded-full p-2">
+          <a class="nav-link" href="home.html">
+            <img src="images/homepage.png" alt="Home" class="w-24 h-24" />
+          </a>
+        </button>
+      </div>
     </div>
 
     <script src="JS/search-customer.js"></script>
-   
-
-</body>
-
+  </body>
 </html>
